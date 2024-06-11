@@ -69,8 +69,8 @@ export const Image = styled.img`
   width: 100%;
   height: auto;
   max-width: 300px;
-  border: 1px solid gray;
-  padding: 1rem;
+  // border: 1px solid gray;
+  // padding: 1rem;
 `;
 
 export const SecondImage = styled.img`
@@ -81,8 +81,8 @@ export const SecondImage = styled.img`
   width: 100%;
   height: auto;
   max-width: 150px;
-  border: 1px solid gray;
-  padding: 1rem;
+  // border: 1px solid gray;
+  // padding: 1rem;
 `;
 
 export const ThirdImage = styled.img`
@@ -93,7 +93,8 @@ export const ThirdImage = styled.img`
   width: 100%;
   height: auto;
   max-width: 250px;
-  border: 1px solid gray;
-  padding: 1rem;
-  mix-blend-mode: exclusion;
+  // border: 1px solid gray;
+  // padding: 1rem;
 `;
+
+export const ThirdImageWrapper = styled.div``
