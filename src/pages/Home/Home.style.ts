@@ -2,7 +2,9 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import theme from "../../utils/Theme";
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+  position: relative;
+`;
 
 export const Container = styled.div`
   text-align: center;
@@ -14,87 +16,75 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
-export const Top = styled.div`
-  position: relative;
-`;
+export const Top = styled.div``;
 
 export const Bottom = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
-  gap: 0.8rem;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 0.8rem;
+  }
 `;
 
 export const Name = styled.p`
-  font-size: clamp(2rem, 4vw + 1rem, 5rem);
-  font-weight: 400;
-
-  position: relative;
+  font-size: clamp(5rem, 10vw, 8rem);
+  font-weight: 200;
 `;
 
 export const Caption = styled.p`
   font-family: "Courier New", monserat;
-  font-size: clamp(10px, 2vw, 1.25rem);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+
+  @media screen and (min-width: 768px) {
+    padding-top: 1rem;
+  }
+`;
+
+export const Resume = styled.div<{ openSide: boolean }>`
+  font-family: "Courier New";
+
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
   padding-top: 1rem;
-  position: relative; /* Required for absolute positioning */
+  border-radius: 0px 12px 12px 0px;
+  background-color: black;
+  color: white;
 
-  &:nth-child(1)::after {
-    background-color: ${({ theme }) => theme.pink};
-  }
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(0%, -50%) rotate(180deg);
 
-  &:nth-child(2)::after {
-    background-color: ${({ theme }) => theme.cream};
-  }
+  transform: ${({ openSide }) =>
+    openSide
+      ? "translate(100%, -50%) rotate(180deg);"
+      : "translate(0%, -50%) rotate(180deg);"}
+  transition: transform 0.6s ease-in-out;
 
-  &:nth-child(3)::after {
-    background-color: #f6b765;
-  }
+  cursor: pointer;
+  writing-mode: vertical-lr;
+`;
 
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 1px;
-    height: 8px;
+export const Sidebar = styled.div<{ openSide?: boolean }>`
+  position: absolute;
+  right: 0;
+  transform: ${({ openSide }) =>
+    openSide ? "translateX(0)" : "translateX(100%)"};
+  transition: transform 0.3s ease-in-out;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+
+  img {
     width: 100%;
-    z-index: -1;
+    max-height: 50%;
   }
-`;
 
-export const Image = styled.img`
-  position: absolute;
-  bottom: -30%;
-  left: -40%;
-  z-index: -1;
-  width: 100%;
-  height: auto;
-  max-width: 300px;
-  // border: 1px solid gray;
-  // padding: 1rem;
+  background-color: #eae3db;
+  background-color: #eaeaea;
 `;
-
-export const SecondImage = styled.img`
-  position: absolute;
-  top: 0%;
-  left: -50%;
-  z-index: -1;
-  width: 100%;
-  height: auto;
-  max-width: 150px;
-  // border: 1px solid gray;
-  // padding: 1rem;
-`;
-
-export const ThirdImage = styled.img`
-  position: absolute;
-  top: 150%;
-  left: -30%;
-  z-index: -3;
-  width: 100%;
-  height: auto;
-  max-width: 250px;
-  // border: 1px solid gray;
-  // padding: 1rem;
-`;
-
-export const ThirdImageWrapper = styled.div``

@@ -1,9 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
 @font-face {
   font-family: "Courier New";
   src: url("./fonts/CourierNew/courierNew.ttf") format("truetype");
   font-weight: 400;
 }
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
 
 body {
   margin: 0;
